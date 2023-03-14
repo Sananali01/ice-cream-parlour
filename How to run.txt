@@ -1,0 +1,3 @@
+Install python modules and then write in terminal "python manage .py runserver"
+
+to install modules "pip install modulename"
