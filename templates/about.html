@@ -1,0 +1,163 @@
+{% extends 'base.html' %} {% block title %} About {% endblock title %} {% block body %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    h1 {
+        color: rgb(0, 0, 0);
+        font-size: larger;
+    }
+    
+    p {
+        color: rgb(0, 0, 0);
+    }
+    
+    .section {
+        width: 100%;
+        min-height: 100vh;
+        background: linear-gradient(to right, #c43c06 0%, #5c5454 100%);
+    }
+    
+    .container {
+        width: 80%;
+        display: block;
+        margin: auto;
+        padding-top: 100px;
+    }
+    
+    .content-section {
+        float: left;
+        width: 55%;
+    }
+    
+    .image-section {
+        float: right;
+        width: 40%;
+    }
+    
+    .image-section img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .content-section .title {
+        text-transform: uppercase;
+        font-size: 28px;
+    }
+    
+    .content-section .content h3 {
+        margin-top: 20px;
+        color: rgb(0, 0, 0);
+        font-size: 41px;
+    }
+    
+    .content-section .content p {
+        margin-top: 10px;
+        font-family: sans-serif;
+        font-size: 18px;
+        line-height: 1.5;
+    }
+    
+    .content-section .content .button {
+        margin-top: 30px;
+    }
+    
+    .content-section .content .button a {
+        background-color: #000000;
+        padding: 12px 40px;
+        text-decoration: none;
+        color: rgb(247, 247, 247);
+        font-size: 25px;
+        letter-spacing: 1.5px;
+    }
+    
+    .content-section .content .button a:hover {
+        background-color: #000000;
+        color: rgb(255, 230, 230);
+    }
+    
+    .content-section .social {
+        margin: 40px 40px;
+    }
+    
+    .content-section .social i {
+        color: #a52a2a;
+        font-size: 30px;
+        padding: 0px 10px;
+    }
+    
+    .content-section .social i:hover {
+        color: #ec2020;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .container {
+            width: 80%;
+            display: block;
+            margin: auto;
+            padding-top: 50px;
+        }
+        .content-section {
+            float: none;
+            width: 100%;
+            display: block;
+            margin: auto;
+        }
+        .image-section {
+            float: none;
+            width: 100%;
+        }
+        .image-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+        .content-section .title {
+            text-align: center;
+            font-size: 19px;
+        }
+        .content-section .content .button {
+            text-align: center;
+        }
+        .content-section .content .button a {
+            padding: 9px 30px;
+        }
+        .content-section .social {
+            text-align: center;
+        }
+    }
+</style>
+
+<div class="section">
+    <div class="container">
+        <div class="content-section">
+            <div class="title">
+                <h1>About Us</h1>
+            </div>
+            <div class="content">
+                <h3>We Sell</h3>
+                <p>When visitors go to your website, the first place they go is your landing page. If they have an interest past your landing page, they will probably go to your “About Us” page to learn more. When a website visitor decides to go to the “About
+                    Us” page for your Ice Cream Shop business, he or she is on a fact-finding mission, as well as looking for the “story” of your Ice Cream Shop business. It’s crucial that your “About Us” page says what goods or services your Ice Cream
+                    Shop business provides.</p>
+                <div class="button">
+                    <a href="">Read More</a>
+                </div>
+            </div>
+            <div class="social">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="image-section">
+            <img src="/static/pics/sq.jpg">
+        </div>
+    </div>
+</div>
+{% endblock body %}

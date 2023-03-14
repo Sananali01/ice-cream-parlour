@@ -1,0 +1,366 @@
+{% extends 'base.html' %} {% block title %} Services {% endblock title %} {% block body %}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    /* ========= VARIABLES ========== */
+    
+     :root {
+        --primary-clr: #850707;
+        --primary-clr-alt: #d6c0e3;
+        --second-clr: #000000;
+        --second-clr-alt: #000000;
+        --text-clr: #f5fdff;
+        --nav-txt-clr: var(--text-clr);
+        --text-clr-bg: #f5fdff;
+        --mobile-menu-bg-clr: #000000;
+        --sec-two-bg-clr: var(--mobile-menu-bg-clr);
+        --form-bg-clr: #dcf1ff70;
+        --form-focus-bg-clr: #850707;
+        --gray-clr: #f5f8fa;
+        --product-bg-clr: #000000;
+        --bx-shadow-clr: #6d477b33;
+    }
+    /* ======== White Theme Variables ======== */
+    
+    .lightmode {
+        --primary-clr-alt: #850707;
+        --second-clr-alt: #000000;
+        --form-bg-clr: #850707;
+        --form-focus-bg-clr: #107a9231;
+        --sec-two-bg-clr: #850707;
+        --text-clr: #2d4253;
+        --nav-txt-clr: var(--second-clr);
+        --bg-clr: #850707;
+        --product-bg-clr: #000000;
+        --bx-shadow-clr: #2d425333;
+    }
+    /* Base */
+    
+    body {
+        scroll-behavior: smooth;
+        color: var(--text-clr);
+        transition: background-color 1000ms;
+        background-color: var(--bg-clr);
+        background: linear-gradient(to right, #c43c06 0%, #5c5454 100%);
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    img {
+        height: auto;
+        width: 100%;
+    }
+    
+    .pos-abs-center {
+        position: absolute;
+    }
+    
+    .s-definition {
+        font-size: calc(27 * 0.06rem);
+        max-width: 32rem;
+        letter-spacing: 0.05rem;
+        line-height: 2rem;
+    }
+    /* Transitions */
+    
+    .clr-transition {
+        transition: color 1000ms;
+    }
+    
+    .bg-clr__transition {
+        transition: background-color 1s;
+    }
+    /* Buttons */
+    
+    .button {
+        cursor: pointer;
+        font-size: 1rem;
+        height: 3rem;
+        padding: 0 1rem;
+        border: none;
+        color: var(--text-clr-bg);
+    }
+    
+    .btn-primary {
+        background-color: var(--primary-clr);
+    }
+    
+    .btn-second-alt {
+        background-color: transparent;
+        border: thin solid var(--text-clr);
+        color: var(--text-clr);
+    }
+    /* ================ */
+    
+    .container {
+        padding: 1.8rem 3rem;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .container {
+            padding: 1rem;
+        }
+    }
+    
+    @media screen and (min-width: 3000px) {
+        .container {
+            padding: 1.8rem 500px;
+        }
+    }
+    /* ...................... */
+    
+    .section-two {
+        background-color: var(--sec-two-bg-clr);
+    }
+    
+    .s-two-upper-info {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .s-two-slogan {
+        font-size: 1.5rem;
+        max-width: 15rem;
+        letter-spacing: 0.05rem;
+        line-height: 2rem;
+    }
+    
+    @media screen and (max-width: 846px) {
+        .section-two {
+            margin-top: 5rem;
+        }
+        .s-two-slogan {
+            margin-bottom: 2rem;
+        }
+    }
+    
+    .s-two-products {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    @media screen and (min-width: 700px) {
+        .s-two-products {
+            margin-top: 4rem;
+        }
+    }
+    
+    .product {
+        cursor: pointer;
+        background: rgba(54, 79, 99, 0.04);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(8.4px);
+        -webkit-backdrop-filter: blur(8.4px);
+        width: 100%;
+        height: calc(421 * 0.06rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transition: transform 1000ms;
+    }
+    
+    @media screen and (max-width: 1147px) {
+        .product {
+            margin-bottom: 2rem;
+        }
+    }
+    
+    @media screen and (min-width: 700px) {
+        .product {
+            width: calc(365 * 0.06rem);
+        }
+    }
+    
+    .product:hover {
+        transform: rotateY(360deg);
+    }
+    
+    .product-one img {
+        max-width: calc(213.51 * 0.06rem);
+        transform: rotate(30deg);
+    }
+    
+    .product-two img {
+        max-width: calc(300 * 0.06rem);
+    }
+    
+    .product-three img {
+        max-width: calc(405 * 0.06rem);
+    }
+    
+    @media screen and (min-width: 700px) {
+        .product {
+            width: calc(365 * 0.06rem);
+        }
+    }
+    
+    .product .price {
+        top: 0;
+        left: 0;
+        margin: 1rem;
+    }
+    
+    .product .buy-btn {
+        cursor: pointer;
+        bottom: 0;
+        left: -0.1rem;
+        margin: 0 0 0.5rem 0;
+        padding: 0.5rem 2.5rem 0.5rem 1rem;
+        color: var(--text-clr-bg);
+        background-color: var(--primary-clr);
+        clip-path: polygon(100% 0, 75% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+    }
+    
+    .product .buy-btn:hover {
+        text-decoration: underline;
+    }
+    
+    .product .name {
+        bottom: 0;
+        right: 0;
+        margin: 1rem;
+        color: var(--primary-clr-alt);
+    }
+    /* Section Three  */
+    
+    .section-three {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    @media screen and (min-width: 843px) {
+        .section-three {
+            margin-bottom: 0;
+        }
+    }
+    
+    @media screen and (min-width: 1023px) {
+        .section-three {
+            margin-top: 5rem;
+            margin-bottom: 0;
+            align-items: flex-start;
+        }
+    }
+    
+    .s-three-upper-img-container img {
+        width: 100%;
+        margin-bottom: 1.3rem;
+        transition: width 1000ms;
+    }
+    
+    @media screen and (min-width: 992px) {
+        .s-three-upper-img-container img {
+            margin-bottom: 0;
+            margin-right: 2rem;
+        }
+    }
+    
+    @media screen and (min-width: 515px) {
+        .s-three-upper-img-container img {
+            width: calc(400 * 0.06rem);
+        }
+    }
+    
+    .s-three-lower-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .s-three-title {
+        font-size: 2rem;
+        min-width: 20rem;
+        margin-bottom: 1.5rem;
+        color: #850707;
+    }
+    
+    .s-three-desc {
+        margin-bottom: 1.5rem;
+        color: #000000;
+    }
+    
+    .s-three-price {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+        color: #000000;
+    }
+    
+    .ad-buy-btn {
+        max-width: calc(148 * 0.06rem);
+        margin-top: 0.8rem;
+        background-color: var(--primary-clr);
+        color: var(--text-clr-bg);
+        transition: box-shadow 300px;
+    }
+    
+    .ad-buy-btn:hover {
+        box-shadow: 5px 5px var(--text-clr);
+    }
+</style>
+<section id="products" class="section section-two container">
+    <div class="s-two-upper-info">
+        <h2 class="s-two-slogan">
+            We Pride Ourselves On Exceptional Flavors.
+        </h2>
+
+        <p class="s-two-definition s-definition">
+            Frozen custard and French-type ice creams also contain eggs. Hundreds of flavours have been devised, the most popular being vanilla, chocolate, and strawberry.</p>
+    </div>
+
+    <div class="s-two-products">
+        <div class="product product-one">
+            <h3 class="price pos-abs-center">Rs.600</h3>
+            <img src="/static/pics/bake/580b57fcd9996e24bc43c1bb.png" alt="ice cream" loading="lazy" />
+            <h3 class="buy-btn pos-abs-center">BUY</h3>
+            <h3 class="name pos-abs-center">Ice cream <b>honey</b></h3>
+        </div>
+
+        <div class="product product-two">
+            <h3 class="price pos-abs-center">Rs.900</h3>
+            <img src="/static/pics/bake/p (1).png" alt="ice cream" loading="lazy" />
+            <h3 class="buy-btn pos-abs-center">BUY</h3>
+            <h3 class="name pos-abs-center">Choco <b>delight</b></h3>
+        </div>
+
+        <div class="product product-three">
+            <h3 class="price pos-abs-center">Rs.1300</h3>
+            <img src="/static/pics/bake/22.png" alt="ice cream" loading="lazy" />
+            <h3 class="buy-btn pos-abs-center">BUY</h3>
+            <h3 class="name pos-abs-center">Carnival <b>strawberry</b></h3>
+        </div>
+
+        <div class="product product-three">
+            <h3 class="price pos-abs-center">Rs.3670</h3>
+            <img src="/static/pics/bake/33.png" alt="ice cream" loading="lazy" />
+            <h3 class="buy-btn pos-abs-center">BUY</h3>
+            <h3 class="name pos-abs-center">Chocolate <b>Bomb</b></h3>
+        </div>
+    </div>
+</section>
+
+<!-- Section two -->
+<section class="section section-three container">
+    <div class="s-three-upper-img-container">
+        <img src="/static/pics/bake/o2.png" alt="" loading="lazy" />
+    </div>
+
+    <div class="s-three-lower-container">
+        <h3 class="s-three-title">Stress out? Try eating our ice cream.</h3>
+        <p class="s-three-desc s-definition">
+        </p>
+
+        <span class="s-three-price"><b>Rs.5010</b></span>
+        <button class="button ad-buy-btn">Buy Now</button>
+    </div>
+</section>
+
+{% endblock body %}

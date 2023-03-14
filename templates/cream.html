@@ -1,0 +1,215 @@
+{% extends 'base.html' %} {% block title %} Ice Cream {% endblock title %} {% block body %}
+<style>
+    body {
+        background: linear-gradient(to right, #c43c06 0%, #5c5454 100%);
+    }
+    
+    #gallary {
+        margin-top: 50px;
+    }
+    
+    #gallary h1 {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 50px;
+        color: rgb(0, 0, 0);
+        text-shadow: 1px 1px 1px rgb(230, 224, 224);
+        border-bottom: 2px solid rgb(0, 0, 0);
+    }
+    
+    #gallary .card {
+        box-shadow: 3px 3px 3px black;
+        cursor: pointer;
+        background: #000000;
+    }
+    
+    #gallary .overlay {
+        width: 100%;
+        color: rgb(247, 247, 247);
+        text-shadow: 1px 1px 1px black;
+    }
+    
+    #gallary .card:hover .overlay {
+        margin-top: 20%;
+        transition: 0.5s ease;
+    }
+    
+    .flavour-section {
+        background-color: #000000;
+    }
+    
+    .flavour-header {
+        text-align: center;
+        padding: 32px;
+        color: darkred;
+        font-family: cursive;
+        font-size: 48px;
+    }
+    
+    .flavour-container {
+        display: flex;
+        align-items: stretch;
+    }
+    
+    .flavour-container>div {
+        color: rgb(182, 178, 178);
+        margin: 50px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 30px;
+    }
+    
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    
+    .text {
+        background-color: black;
+        color: white;
+        font-size: 18px;
+        font-style: italic;
+        border: 1px solid grey;
+        padding: 8px 16px;
+    }
+    
+    .flavours {
+        cursor: pointer;
+        position: relative;
+        width: 20%;
+    }
+    
+    .image {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
+        border-radius: 50%;
+    }
+    
+    .flavours:hover .image {
+        opacity: 0.7;
+    }
+    
+    .flavours:hover .middle {
+        opacity: 1;
+    }
+    
+    h1 {
+        color: rgb(255, 255, 255);
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+</style>
+
+
+<section id="gallary" data-aos="fade-up" data-aos-duration="1500">
+
+    <div class="container">
+        <h1>OUR GALLARY</h1>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <div class="overlay">
+                        <h3 class="text-center">Donuts</h3>
+                    </div>
+                    <img src="/static/pics/2/304630.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <div class="overlay">
+                        <h3 class="text-center">Ice Cream</h3>
+                    </div>
+                    <img src="/static/pics/2/pak1.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <div class="overlay">
+                        <h3 class="text-center">Cup Cake</h3>
+                    </div>
+                    <img src="/static/pics/2/1063885.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 30px;" data-aos="fade-up" data-aos-duration="1500">
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <div class="overlay">
+                        <h3 class="text-center">Delicious Cake</h3>
+                    </div>
+                    <img src="/static/pics/2/976822.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <div class="overlay">
+                        <h3 class="text-center">Chocolate Cake</h3>
+                    </div>
+                    <img src="/static/pics/2/378687.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <div class="overlay">
+                        <h3 class="text-center">Shake</h3>
+                    </div>
+                    <img src="/static/pics/2/401681.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+&nbsp;<br><br>
+<h1 align="center"><u>Check out the Flavours</u></h1>
+&nbsp;<br><br>
+
+<section>
+    <div class="flavour-section">
+        <p class="flavour-header">Flavours</p>
+        <div class="flavour-container" id="flavourSection">
+            <div class="flavours">
+                <img src="/static/pics/flavours/chocolate_flavour.jpg" alt="Avatar" class="image">
+                <div class="middle">
+                    <div class="text">Delicious chocolate!</div>
+                </div>
+            </div>
+            <div class="flavours">
+                <img src="/static/pics/flavours/strawberry_flavour.jpg" alt="Avatar" class="image">
+                <div class="middle">
+                    <div class="text">Sweet strawberry!</div>
+                </div>
+            </div>
+            <div class="flavours">
+                <img src="/static/pics/flavours/vanilla_flavours.jpg" alt="Avatar" class="image">
+                <div class="middle">
+                    <div class="text">Simply vanilla!</div>
+                </div>
+            </div>
+            <div class="flavours">
+                <img src="/static/pics/flavours/oreo_flavour.jpg" alt="Avatar" class="image">
+                <div class="middle">
+                    <div class="text">Funky oreo!</div>
+                </div>
+            </div>
+            <div class="flavours">
+                <img src="/static/pics/flavours/mango_flavour.jpg" alt="Avatar" class="image">
+                <div class="middle">
+                    <div class="text">Yummy Mango!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock body %}
