@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-y2+ps20jabp_8xdc2b^4vc3bwo)y-t4^c@3w05h0w-u9fzr6u+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','creamrampage.herokuapp.com']
 
 
 # Application definition
